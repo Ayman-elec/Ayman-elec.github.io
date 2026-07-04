@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ayman Zawaidi — Electrical & Electronics Engineer</title>
+<meta name="description" content="Ayman Zawaidi — Electrical & Electronics Engineer working across the signal chain: signal processing & AI, power electronics, embedded motor control, and robotics." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --ink:#0C0D0F;          /* Deep Obsidian */
+  --panel:#151619;
+  --panel-2:#1D1F23;
+  --line:#31343A;
+  --line-soft:#212327;
+  --text:#ECEDE9;
+  --muted:#A7ADB2;        /* Solder Tin */
+  --muted-2:#71767B;
+  --amber:#35C97D;        /* Emerald (primary) */
+  --amber-dim:#2A9D68;
+  --cyan:#F3B23D;         /* Amber Gold (secondary / CH2) */
+  --tin:#C3C9CE;          /* Solder Tin highlight */
+  --radius:14px;
+  --maxw:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--text);
+  font-family:"IBM Plex Sans",system-ui,sans-serif;
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* graticule texture used behind hero */
+.grid-bg{
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size:44px 44px;
+  mask-image:radial-gradient(ellipse 90% 70% at 50% 32%, #000 30%, transparent 78%);
+  opacity:.5;
+  pointer-events:none;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.mono{font-family:"IBM Plex Mono",monospace}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:12.5px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--amber); display:inline-flex; align-items:center; gap:10px;
+}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--amber);opacity:.7}
+h1,h2,h3{font-family:"Space Grotesk",sans-serif;font-weight:600;line-height:1.08;margin:0}
+.section{padding:96px 0;position:relative}
+.section-head{max-width:640px;margin-bottom:52px}
+.section-head h2{font-size:clamp(28px,4vw,40px);margin-top:16px;letter-spacing:-.02em}
+.section-head p{color:var(--muted);margin:14px 0 0}
+
+/* ---------- NAV ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  backdrop-filter:blur(10px);
+  background:rgba(11,15,20,.72);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s, background .3s;
+}
+nav.scrolled{border-bottom:1px solid var(--line-soft);background:rgba(11,15,20,.9)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:"IBM Plex Mono",monospace;font-weight:500;letter-spacing:.14em;font-size:14px;display:flex;align-items:center;gap:9px}
+.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px var(--amber)}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted);letter-spacing:.04em;transition:color .2s;position:relative}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
+.nav-links a.active::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--amber)}
+.nav-cta{border:1px solid var(--line);color:var(--text)!important;padding:7px 15px;border-radius:8px;transition:border-color .2s,background .2s}
+.nav-cta:hover{border-color:var(--amber);background:rgba(255,182,39,.08)}
+.nav-toggle{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:6px 10px;font-family:"IBM Plex Mono",monospace;font-size:13px;cursor:pointer}
+@media(max-width:820px){
+  .nav-links{display:none}
+  .nav-toggle{display:block}
+  .nav-links.open{display:flex;position:absolute;top:100%;right:28px;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 20px;gap:16px}
+}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;padding:150px 0 70px;overflow:hidden}
+.hero-inner{position:relative;z-index:2}
+.hero .tagline{color:var(--muted);font-size:clamp(17px,2.1vw,21px);max-width:600px;margin:26px 0 0;line-height:1.55}
+.hero h1{
+  font-size:clamp(46px,9vw,104px);
+  font-weight:700;letter-spacing:-.035em;margin-top:22px;
+  line-height:.94;
+}
+.hero h1 .role{
+  display:block;font-size:clamp(15px,2.4vw,22px);font-weight:500;letter-spacing:.02em;
+  color:var(--amber);font-family:"Space Grotesk",sans-serif;margin-top:20px;
+}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:34px;font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted)}
+.hero-meta span{display:inline-flex;align-items:center;gap:8px}
+.hero-meta span::before{content:"";width:5px;height:5px;background:var(--cyan);border-radius:50%}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+.btn{
+  font-family:"IBM Plex Mono",monospace;font-size:14px;letter-spacing:.03em;
+  padding:13px 22px;border-radius:10px;cursor:pointer;transition:transform .15s,background .2s,border-color .2s;
+  display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--amber);color:#04170D;border-color:var(--amber);font-weight:500}
+.btn-primary:hover{background:#45D98C}
+.btn-ghost{color:var(--text)}
+.btn-ghost:hover{border-color:var(--amber)}
+
+/* scope waveform signature */
+.scope{position:relative;margin-top:64px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,#141518,#0D0E10);overflow:hidden}
+.scope-label{position:absolute;top:12px;left:16px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--muted-2);z-index:3}
+.scope-label .ch1{color:var(--amber)}
+.scope-label .ch2{color:var(--cyan)}
+.scope svg{display:block;width:100%;height:170px}
+.scope .gr{stroke:var(--line-soft);stroke-width:1}
+.trace{fill:none;stroke-width:2.1;stroke-linecap:round;filter:drop-shadow(0 0 5px currentColor)}
+.trace.t1{color:var(--amber);stroke:var(--amber);stroke-dasharray:2400;stroke-dashoffset:2400;animation:draw 3.4s ease forwards}
+.trace.t2{color:var(--cyan);stroke:var(--cyan);opacity:.85;stroke-dasharray:2400;stroke-dashoffset:2400;animation:draw 3.4s .5s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.sweep{transform-box:view-box;transform-origin:center;animation:sweep 4.5s linear infinite}
+@keyframes sweep{0%{opacity:0}6%{opacity:1}94%{opacity:1}100%{opacity:0;transform:translateX(6px)}}
+
+/* ---------- SIGNAL CHAIN ---------- */
+.chain{border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);background:var(--panel)}
+.chain-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.chain-cell{padding:30px 26px;border-right:1px solid var(--line-soft);position:relative}
+.chain-cell:last-child{border-right:none}
+.chain-cell .ch{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--amber);letter-spacing:.1em}
+.chain-cell h3{font-size:17px;margin-top:12px;font-weight:500}
+.chain-cell p{color:var(--muted);font-size:13.5px;margin:8px 0 0;font-family:"IBM Plex Mono",monospace;line-height:1.5}
+.chain-cell::after{content:"→";position:absolute;right:-9px;top:34px;color:var(--line);font-size:15px;z-index:2;background:var(--panel);padding:0 1px}
+.chain-cell:last-child::after{display:none}
+@media(max-width:760px){.chain-inner{grid-template-columns:1fr 1fr}.chain-cell:nth-child(2)::after{display:none}.chain-cell:nth-child(2n){border-right:none}}
+@media(max-width:440px){.chain-inner{grid-template-columns:1fr}.chain-cell{border-right:none;border-bottom:1px solid var(--line-soft)}.chain-cell::after{display:none}}
+
+/* ---------- ABOUT ---------- */
+.about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:start}
+.about-grid p{color:#C4D0DA;margin:0 0 18px;font-size:17.5px}
+.about-grid p strong{color:var(--text);font-weight:600}
+.profile-card{border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);padding:26px;font-family:"IBM Plex Mono",monospace}
+.profile-card .row{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px dashed var(--line-soft);font-size:13px}
+.profile-card .row:last-child{border-bottom:none}
+.profile-card .k{color:var(--muted-2)}
+.profile-card .v{color:var(--text);text-align:right}
+.profile-card .v.amber{color:var(--amber)}
+.about-side{display:flex;flex-direction:column;gap:20px}
+.portrait{position:relative;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--panel)}
+.portrait img{width:100%;display:block;filter:contrast(1.02) saturate(.97)}
+.portrait::before{content:"";position:absolute;inset:0;box-shadow:inset 0 0 70px rgba(12,13,15,.45);pointer-events:none;z-index:1}
+.portrait::after{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--amber),var(--cyan));opacity:.9;z-index:2}
+.portrait .ptag{position:absolute;left:12px;bottom:11px;z-index:2;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;color:var(--tin);background:rgba(12,13,15,.6);backdrop-filter:blur(4px);padding:5px 10px;border-radius:7px;border:1px solid var(--line-soft)}
+@media(max-width:800px){.about-grid{grid-template-columns:1fr;gap:32px}.portrait{max-width:320px}}
+
+/* ---------- WORK ---------- */
+.project{border-top:1px solid var(--line-soft);padding:64px 0}
+.project:first-of-type{border-top:none;padding-top:0}
+.p-index{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--amber);letter-spacing:.1em}
+.p-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px 18px;margin:10px 0 6px}
+.p-head h3{font-size:clamp(23px,3.4vw,32px);letter-spacing:-.02em}
+.p-role{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted)}
+.pill{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.06em;padding:4px 11px;border-radius:20px;border:1px solid var(--line);color:var(--muted)}
+.pill.live{border-color:var(--amber-dim);color:var(--amber)}
+.pill.live::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--amber);margin-right:7px;vertical-align:middle;box-shadow:0 0 8px var(--amber)}
+.p-body{display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:center;margin-top:26px}
+.p-body.rev{direction:rtl}
+.p-body.rev>*{direction:ltr}
+.p-body p{color:#C4D0DA;margin:0 0 20px}
+.p-body.solo{grid-template-columns:1fr;max-width:820px}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:12px;overflow:hidden;margin-top:6px}
+.metric{background:var(--panel);padding:16px 18px}
+.metric .num{font-family:"Space Grotesk",sans-serif;font-size:22px;font-weight:600;color:var(--amber);letter-spacing:-.01em}
+.metric .lab{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--muted);margin-top:3px;letter-spacing:.02em}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.tag{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);border:1px solid var(--line-soft);padding:5px 10px;border-radius:7px}
+.media{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--panel-2)}
+.media img{width:100%;height:100%;object-fit:cover}
+.media-grid{display:grid;gap:12px}
+.media-grid.g2{grid-template-columns:1fr 1fr}
+.media-cap{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--muted-2);padding:9px 12px;border-top:1px solid var(--line-soft);background:var(--panel)}
+.figure{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel)}
+.figure img{width:100%}
+.wave-strip{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#000;margin-top:4px}
+.wave-strip img{width:100%;display:block;opacity:.92}
+@media(max-width:800px){.p-body,.p-body.rev{grid-template-columns:1fr;direction:ltr}.metrics{grid-template-columns:1fr 1fr}}
+
+/* small project cards */
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:8px}
+.card{border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);overflow:hidden;display:flex;flex-direction:column;transition:border-color .25s,transform .25s}
+.card:hover{border-color:var(--amber-dim);transform:translateY(-3px)}
+.card .cimg{aspect-ratio:16/10;overflow:hidden;background:var(--panel-2)}
+.card .cimg img{width:100%;height:100%;object-fit:cover}
+.card .cbody{padding:22px 22px 24px}
+.card .p-index{font-size:12px}
+.card h3{font-size:20px;margin:8px 0 10px}
+.card p{color:var(--muted);font-size:14.5px;margin:0}
+.card .tags{margin-top:16px}
+@media(max-width:700px){.cards{grid-template-columns:1fr}}
+
+/* ---------- EXPERIENCE ---------- */
+.timeline{border-left:1px solid var(--line);margin-left:8px;padding-left:34px}
+.tl-item{position:relative;padding-bottom:46px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-42px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--ink);border:2px solid var(--amber)}
+.tl-item.now::before{background:var(--amber);box-shadow:0 0 12px var(--amber)}
+.tl-date{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--amber);letter-spacing:.05em}
+.tl-item h3{font-size:20px;margin:8px 0 3px}
+.tl-org{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted);margin-bottom:12px}
+.tl-item ul{margin:0;padding-left:18px;color:#C0CCD6}
+.tl-item li{margin-bottom:7px}
+.tl-item li::marker{color:var(--amber-dim)}
+
+/* ---------- SKILLS ---------- */
+.skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.skill-col{border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);padding:26px}
+.skill-col h3{font-family:"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);font-weight:500}
+.skill-col ul{list-style:none;padding:0;margin:18px 0 0}
+.skill-col li{padding:9px 0;border-bottom:1px solid var(--line-soft);font-size:15px;color:#CBD6DF;display:flex;align-items:center;gap:11px}
+.skill-col li:last-child{border-bottom:none}
+.skill-col li::before{content:"";width:6px;height:6px;background:var(--cyan);border-radius:1px;flex-shrink:0}
+@media(max-width:820px){.skill-grid{grid-template-columns:1fr}}
+
+/* ---------- EDUCATION ---------- */
+.edu{border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);padding:34px;max-width:860px}
+.edu-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:baseline;margin-bottom:20px}
+.edu-top h3{font-size:23px}
+.edu-top .date{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--amber)}
+.edu ul{margin:0;padding-left:18px;color:#C4D0DA}
+.edu li{margin-bottom:11px}
+.edu li::marker{color:var(--amber-dim)}
+.edu em{color:var(--text);font-style:italic}
+
+/* ---------- CONTACT ---------- */
+.contact{border-top:1px solid var(--line-soft);text-align:center;padding:110px 0 60px}
+.contact .eyebrow{justify-content:center}
+.contact h2{font-size:clamp(32px,6vw,58px);letter-spacing:-.03em;margin:20px 0 0}
+.contact p{color:var(--muted);max-width:520px;margin:20px auto 0}
+.contact-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:38px}
+footer{border-top:1px solid var(--line-soft);padding:26px 0;margin-top:70px}
+.foot-inner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--muted-2)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .trace{animation:none!important;stroke-dashoffset:0!important}
+  .sweep{animation:none!important;opacity:1!important}
+  .btn:hover,.card:hover{transform:none}
+}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand"><span class="dot"></span>AYMAN ZAWAIDI</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">MENU</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact" class="nav-cta">Get in touch</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="grid-bg"></div>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">EEE Engineer · Open to R&amp;D roles</span>
+    <h1>Ayman<br>Zawaidi
+      <span class="role">Electrical &amp; Electronics Engineer</span>
+    </h1>
+    <p class="tagline">I design and build hardware across the full signal chain — power electronics, custom motor drivers, embedded control, and teleoperated robotics.</p>
+
+    <div class="hero-meta">
+      <span>Power Electronics</span>
+      <span>Embedded Systems</span>
+      <span>Deep Learning / DSP</span>
+      <span>PCB &amp; Motor Control</span>
+    </div>
+
+    <div class="hero-cta">
+      <a href="#work" class="btn btn-primary">View work</a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    </div>
+
+    <!-- SIGNATURE: dual-trace oscilloscope -->
+    <div class="scope" aria-hidden="true">
+      <div class="scope-label"><span class="ch1">CH1 ▮ EMERALD</span> &nbsp; <span class="ch2">CH2 ▮ AMBER GOLD</span> &nbsp; SIGNAL CHAIN</div>
+      <svg viewBox="0 0 1200 170" preserveAspectRatio="none">
+        <g class="gr">
+          <line x1="0" y1="42.5" x2="1200" y2="42.5"/>
+          <line x1="0" y1="85" x2="1200" y2="85"/>
+          <line x1="0" y1="127.5" x2="1200" y2="127.5"/>
+          <line x1="150" y1="0" x2="150" y2="170"/>
+          <line x1="300" y1="0" x2="300" y2="170"/>
+          <line x1="450" y1="0" x2="450" y2="170"/>
+          <line x1="600" y1="0" x2="600" y2="170"/>
+          <line x1="750" y1="0" x2="750" y2="170"/>
+          <line x1="900" y1="0" x2="900" y2="170"/>
+          <line x1="1050" y1="0" x2="1050" y2="170"/>
+        </g>
+        <g class="sweep">
+          <path class="trace t1" d="M0,85 C60,85 70,30 120,30 C170,30 175,120 220,120 C260,120 270,55 320,85 C360,108 380,40 430,72 C470,96 490,25 540,85 C590,140 600,55 650,55 C700,55 710,118 760,92 C800,72 820,38 870,85 C920,128 930,60 980,60 C1030,60 1050,100 1100,85 C1150,72 1170,85 1200,85"/>
+          <path class="trace t2" d="M0,110 C50,110 60,70 110,88 C160,104 180,60 230,60 C280,60 290,132 340,108 C390,86 400,120 450,100 C500,82 520,118 570,110 C620,102 640,66 690,88 C740,108 760,74 810,74 C860,74 880,116 930,100 C980,86 1000,120 1050,108 C1100,98 1150,110 1200,105"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<!-- SIGNAL CHAIN -->
+<section class="chain">
+  <div class="wrap"><div class="chain-inner">
+    <div class="chain-cell"><div class="ch">CH.01</div><h3>Signal Processing &amp; AI</h3><p>Deep unfolding, channel estimation, custom neural nets</p></div>
+    <div class="chain-cell"><div class="ch">CH.02</div><h3>Power Electronics</h3><p>DC-DC converters, power distribution, control loops</p></div>
+    <div class="chain-cell"><div class="ch">CH.03</div><h3>Embedded &amp; Motor Control</h3><p>STM32 / ESP32, FOC BLDC drivers, sensor fusion</p></div>
+    <div class="chain-cell"><div class="ch">CH.04</div><h3>Robotics &amp; Telecom</h3><p>Teleoperation, telemetry links, LiFi, PCB design</p></div>
+  </div></div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="about-grid reveal">
+      <div>
+        <span class="eyebrow">Profile</span>
+        <div style="height:16px"></div>
+        <p>I'm a final-year <strong>Electrical &amp; Electronics Engineering</strong> student at Karabük University, graduating in 2026, with hands-on experience that spans the full hardware stack.</p>
+        <p>My work moves between <strong>deep learning for wireless signal processing</strong>, <strong>power electronics</strong>, and <strong>embedded motor control</strong> — from a novel 6G THz channel-estimation network now under review at an IEEE conference, to custom FOC motor drivers and a three-layer safety architecture for an autonomous vehicle.</p>
+        <p>I like problems where the algorithm and the silicon have to agree with each other: designing a converter, sizing a driver, closing a control loop, then proving it holds up under real thermal and current constraints.</p>
+      </div>
+      <div class="about-side">
+        <div class="portrait">
+          <img src="assets/headshot.jpeg" alt="Portrait of Ayman Zawaidi" loading="lazy">
+          <span class="ptag">// AYMAN ZAWAIDI</span>
+        </div>
+        <div class="profile-card">
+          <div class="row"><span class="k">ROLE</span><span class="v amber">EEE Engineer</span></div>
+          <div class="row"><span class="k">FOCUS</span><span class="v">Power · Embedded · DSP</span></div>
+          <div class="row"><span class="k">GRAD</span><span class="v">July 2026</span></div>
+          <div class="row"><span class="k">NOW</span><span class="v">Telecom Eng. Intern<br>@ AI ARD Robotik</span></div>
+          <div class="row"><span class="k">STATUS</span><span class="v amber">Open to R&amp;D roles</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Selected Work</span>
+      <h2>Things I've designed and built.</h2>
+      <p>Research, power hardware, and robotics — each one taken from concept through to a working, measured result.</p>
+    </div>
+
+    <!-- P1 LAMP -->
+    <article class="project reveal">
+      <div class="p-index">01 / RESEARCH · DEEP LEARNING</div>
+      <div class="p-head">
+        <h3>6G THz Channel Estimation — Deep Unfolding (LAMP)</h3>
+        <span class="pill live">Under review · IEEE ICEEET</span>
+      </div>
+      <div class="p-role">Senior Project · Deep Learning Researcher — supervised by Asst. Prof. Dr. Tarik A. Almohamad</div>
+      <div class="p-body">
+        <div>
+          <p>A Learned Approximate Message Passing (LAMP) network for near-field channel estimation in Terahertz ultra-massive MIMO. The work builds a three-constraint theoretical framework that predicts and explains the performance ceiling of block-diagonal analog combining — showing the limit is <em>architectural, not algorithmic</em>.</p>
+          <p>Channels were generated with the TeraMIMO simulator at 300&nbsp;GHz over 10&nbsp;GHz of bandwidth, and controlled A/B tests on identical channel realizations produced a concrete antenna-aperture design rule for sub-array receivers.</p>
+          <div class="tags">
+            <span class="tag">MATLAB</span><span class="tag">Deep Unfolding</span><span class="tag">Compressed Sensing</span><span class="tag">Custom NN Training</span><span class="tag">TeraMIMO</span>
+          </div>
+        </div>
+        <div class="metrics">
+          <div class="metric"><div class="num">−1.95 dB</div><div class="lab">NMSE achieved (System B)</div></div>
+          <div class="metric"><div class="num">+0.12 dB</div><div class="lab">block-diagonal vs dense</div></div>
+          <div class="metric"><div class="num">1024</div><div class="lab">receive antennas</div></div>
+          <div class="metric"><div class="num">8-ant</div><div class="lab">derived aperture rule</div></div>
+        </div>
+      </div>
+      <div class="wave-strip" style="margin-top:26px"><img src="assets/ugv_waveform.png" alt="Switching-domain signal waveform" loading="lazy"></div>
+    </article>
+
+    <!-- P2 UGV -->
+    <article class="project reveal">
+      <div class="p-index">02 / AUTONOMOUS VEHICLE · POWER &amp; EMBEDDED</div>
+      <div class="p-head">
+        <h3>Parsav — Autonomous UGV Electrical Architecture</h3>
+        <span class="pill">Teknofest · Development concluded</span>
+      </div>
+      <div class="p-role">Head of Electrical &amp; Electronics Department</div>
+      <div class="p-body rev">
+        <div class="media-grid g2">
+          <div class="media"><img src="assets/ugv_pdb.jpeg" alt="Custom power distribution board render" loading="lazy"><div class="media-cap">PDB — 3-output power distribution board</div></div>
+          <div class="media"><img src="assets/ugv_elrs.jpeg" alt="ELRS telemetry board render" loading="lazy"><div class="media-cap">ELRS Tx/Rx telemetry board (ESP32)</div></div>
+        </div>
+        <div>
+          <p>I led the full electrical architecture for a manual and autonomous unmanned ground vehicle: power distribution, high-current supply, communication, and a fault-tolerant safety system.</p>
+          <p>The build included an 868&nbsp;MHz ELRS telemetry link chosen for reliable non-line-of-sight control, a custom 3-output Power Distribution Board holding <em>97% efficiency at 95&nbsp;W</em>, a custom 13S4P Li-Ion pack on a 200&nbsp;A BMS, and an in-house FOC BLDC motor driver (DRV8353 + STM32G431) sized from the motors' 100&nbsp;mΩ phase resistance and 48&nbsp;V / 3200&nbsp;RPM ratings.</p>
+          <div class="metrics">
+            <div class="metric"><div class="num">97%</div><div class="lab">PDB efficiency @ 95 W</div></div>
+            <div class="metric"><div class="num">868 MHz</div><div class="lab">ELRS telemetry link</div></div>
+            <div class="metric"><div class="num">48 V · 200 A</div><div class="lab">13S4P pack + BMS</div></div>
+            <div class="metric"><div class="num">3-layer</div><div class="lab">safety interlock logic</div></div>
+          </div>
+          <div class="tags">
+            <span class="tag">FOC BLDC Driver</span><span class="tag">DRV8353</span><span class="tag">STM32G431</span><span class="tag">Altium Designer</span><span class="tag">LTspice</span><span class="tag">Sensor Fusion</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- P3 Robot Arm -->
+    <article class="project reveal">
+      <div class="p-index">03 / ROBOTICS · MECHATRONICS</div>
+      <div class="p-head">
+        <h3>Teleoperation Robot Arm — Master / Slave</h3>
+        <span class="pill">Designed · Built · Working</span>
+      </div>
+      <div class="p-role">Full design, CAD, and physical build</div>
+      <div class="p-body">
+        <div>
+          <p>A master–slave teleoperation system built from two semi-identical robotic arms. An operator holds and moves the <em>master</em>; the <em>slave</em> mirrors the motion in real time — reproducing the same trajectory with high precision and effectively no perceptible delay.</p>
+          <p>I designed the full mechanical assembly in CAD — custom joint housings, a rotating base, and the linkage arms — then assembled and wired the servo-driven hardware and motion-mapping control.</p>
+          <div class="tags">
+            <span class="tag">CAD / Fusion 360</span><span class="tag">Servo Control</span><span class="tag">Real-time Mapping</span><span class="tag">3D Printing</span>
+          </div>
+        </div>
+        <div class="media-grid g2">
+          <div class="media"><img src="assets/arm_cad_full.jpeg" alt="Robot arm full CAD assembly" loading="lazy"><div class="media-cap">Full CAD assembly on rotating base</div></div>
+          <div class="media"><img src="assets/arm_build.jpeg" alt="Robot arm physical build" loading="lazy"><div class="media-cap">Servo-driven physical build</div></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Small cards: LiFi + Biomedical -->
+    <div class="project reveal" style="border-top:1px solid var(--line-soft)">
+      <div class="p-index" style="margin-bottom:24px">04 / MORE WORK</div>
+      <div class="cards">
+        <div class="card">
+          <div class="cimg"><img src="assets/lifi_1.jpeg" alt="LiFi data transfer bench setup" loading="lazy"></div>
+          <div class="cbody">
+            <div class="p-index">EMBEDDED SYSTEMS COURSE · LI-FI</div>
+            <h3>LiFi Data Transfer System</h3>
+            <p>A light-based data link using lasers and photodiodes as the optical transmit/receive pair — moving data over a modulated light beam as a low-interference alternative to congested RF. Designed, built, and demonstrated live on the bench for an Embedded Systems course.</p>
+            <div class="tags"><span class="tag">Photodiodes</span><span class="tag">Laser Modulation</span><span class="tag">Embedded</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="cimg"><img src="assets/ugv_contactor.jpeg" alt="High-voltage boost converter board" loading="lazy"></div>
+          <div class="cbody">
+            <div class="p-index">POWER ELECTRONICS</div>
+            <h3>Portable Biomedical Boost Converter</h3>
+            <p>A custom adjustable high-voltage (12–200&nbsp;V) DC-DC boost converter designed in LTspice, with isolated constant-current loops for stability across variable-impedance loads under strict thermal limits. Power-stage design completed.</p>
+            <div class="tags"><span class="tag">DC-DC Boost</span><span class="tag">Altium Designer</span><span class="tag">LTspice</span><span class="tag">Constant-Current</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Experience</span>
+      <h2>Where I've worked.</h2>
+    </div>
+    <div class="timeline reveal">
+      <div class="tl-item now">
+        <div class="tl-date">Present</div>
+        <h3>Telecommunications Engineer — Intern</h3>
+        <div class="tl-org">AI ARD Robotik A.Ş.</div>
+        <ul>
+          <li>Analyze the operational field and application requirements of active projects.</li>
+          <li>Design and integrate the telecom system for data, visual/feedback, and telemetry transfer — each handled on separate frequencies.</li>
+          <li>Select, test, and place telecom hardware and modules, and make sourcing recommendations.</li>
+          <li>Consult on power electronics and Hardware-in-the-Loop (HIL) applications.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Dec 2025 — 2026</div>
+        <h3>Head of E&amp;E Department — Autonomous UGV (Parsav)</h3>
+        <div class="tl-org">Teknofest Competition</div>
+        <ul>
+          <li>Owned the vehicle's electrical architecture: power distribution, high-current supply, telemetry, and safety.</li>
+          <li>Directed custom FOC motor driver R&amp;D and a 3-layer contactor-based safety interlock.</li>
+          <li>Built a custom 13S4P Li-Ion pack (200&nbsp;A BMS) and an adjustable PDB at 97% efficiency.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Jun 2025 — Jul 2025</div>
+        <h3>Electrical Engineering Intern</h3>
+        <div class="tl-org">VTEK Elektrik</div>
+        <ul>
+          <li>Assembled and tested chargers and PSUs against required ripple-percentage limits at maximum load.</li>
+          <li>Practiced PCB design for strict interference standards and minimal thermal runaway.</li>
+          <li>Studied component selection driven by frequency requirements and availability.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Capabilities</span>
+      <h2>Technical skills.</h2>
+    </div>
+    <div class="skill-grid reveal">
+      <div class="skill-col">
+        <h3>Software &amp; AI</h3>
+        <ul>
+          <li>MATLAB / Simulink</li>
+          <li>C / C++</li>
+          <li>Deep Learning</li>
+          <li>Custom Neural Network Design &amp; Training</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <h3>Hardware &amp; Power</h3>
+        <ul>
+          <li>Altium Designer (Schematic &amp; PCB)</li>
+          <li>Schematic Design &amp; Simulation</li>
+          <li>PCB Design</li>
+          <li>Embedded Systems (STM32, ESP32)</li>
+          <li>DC-DC Converters</li>
+          <li>Control Loops</li>
+          <li>BLDC Motor Drivers</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <h3>Prototyping</h3>
+        <ul>
+          <li>H-Bridge Drivers</li>
+          <li>Soldering / Desoldering (THT &amp; SMD)</li>
+          <li>3D Printing</li>
+          <li>Hardware-in-the-Loop (HIL)</li>
+          <li>Testing &amp; Quality Control (QC)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section" id="education">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Education</span>
+      <h2>Academic background.</h2>
+    </div>
+    <div class="edu reveal">
+      <div class="edu-top">
+        <h3>B.Sc., Electrical &amp; Electronics Engineering</h3>
+        <span class="date">Jun 2022 — Jul 2026</span>
+      </div>
+      <div class="tl-org" style="margin-bottom:18px;color:var(--muted)">Karabük University</div>
+      <ul>
+        <li>Cumulative GPA: <em>3.18 / 4.00</em>, with a strong upward trajectory — final two semesters: <em>3.43</em> and <em>3.69 / 4.00</em> as coursework shifted toward communications, signal processing, and research.</li>
+        <li>Top grades (AA / 4.0) in the courses most relevant to this program: <em>Communication Systems II, Probability &amp; Statistics, Data Mining, Numerical Analysis, Control Systems I</em>; AA in <em>Senior Project I &amp; II</em>.</li>
+        <li>Awarded the <em>"EUBurs"</em> Merit Scholarship for academic excellence.</li>
+        <li>Relevant coursework: <em>Communication Systems I &amp; II, Signals &amp; Systems, Probability &amp; Statistics, Electromagnetic Theory, Microwave Techniques, Data Mining, Control Systems, Embedded Systems.</em></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <span class="eyebrow">Contact</span>
+    <h2>Let's build something.</h2>
+    <p>Open to R&amp;D and engineering roles in power electronics, embedded systems, and applied ML. The fastest way to reach me is email.</p>
+    <div class="contact-actions">
+      <a href="mailto:a0z0business@gmail.com" class="btn btn-primary">a0z0business@gmail.com</a>
+      <a href="https://www.linkedin.com/in/ayman-zawaidi-b0521a280/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
+    </div>
+  </div>
+  <footer>
+    <div class="wrap foot-inner">
+      <span>AYMAN ZAWAIDI · EEE ENGINEER</span>
+      <span>AVAILABLE FROM JULY 2026 · +90 551 689 44 25</span>
+    </div>
+  </footer>
+</section>
+
+<script>
+// nav scroll state
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>20)});
+// mobile menu
+const t=document.getElementById('navToggle'),l=document.getElementById('navLinks');
+t.addEventListener('click',()=>l.classList.toggle('open'));
+l.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>l.classList.remove('open')));
+// active section highlight
+const links=[...document.querySelectorAll('.nav-links a[href^="#"]')];
+const map={};links.forEach(a=>{const id=a.getAttribute('href').slice(1);if(document.getElementById(id))map[id]=a;});
+const secObs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(x=>x.classList.remove('active'));if(map[e.target.id])map[e.target.id].classList.add('active');}});},{rootMargin:'-45% 0px -50% 0px'});
+['work','experience','skills','education','contact'].forEach(id=>{const el=document.getElementById(id);if(el)secObs.observe(el);});
+// reveal
+const rev=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rev.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>rev.observe(el));
+</script>
+</body>
+</html>
